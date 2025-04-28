@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dineflow</title>
-    
+    <title>Unidorm</title>
+
     <!-- Fonts and icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;100;300;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
-    
+
     <!-- Favicon -->
     <link rel="icon" href="assets/favicon.ico">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
@@ -26,13 +27,14 @@
 </head>
 <style>
     .bg-yellow {
-    background-color: yellow;
-}
-    </style>
+        background-color: yellow;
+    }
+</style>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-yellow fixed-top" id="mainNav">
-    <div class="container">
+        <div class="container">
             <a class="navbar-brand" width="100" height="100" href="#page-top">
                 <img src="{{ asset('assets/logo-main.png') }}" alt="Logo">
             </a>
@@ -52,13 +54,15 @@
     </nav>
 
     <!-- Masthead -->
-    <header class="masthead text-center">
+    <header class="masthead d-flex align-items-start text-left">
         <div class="container">
-            <div class="masthead-subheading">Welcome to DineFlow!</div>
-            <div class="masthead-heading text-uppercase">Making Cafe Hunting Easy</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Explore Services</a>
+            <div class="masthead-heading text-uppercase">Welcome to Unidorm!</div>
+            <div class="masthead-subheading">Making Dorm Hunting Easy</div>
+            <a class="btn btn-secondary btn-xl text-uppercase" href="#services">Explore Services</a>
         </div>
     </header>
+
+
 
     <div class="container mt-5">
         @yield('content')
@@ -74,4 +78,5 @@
     <!-- Custom Scripts -->
     <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
+
 </html>

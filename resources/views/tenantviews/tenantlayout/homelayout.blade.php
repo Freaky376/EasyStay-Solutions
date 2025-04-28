@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dineflow</title>
-    
+    <title>Unidorm</title>
+
     <!-- Fonts and icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@400;100;300;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet">
-    
+
     <!-- Favicon -->
     <link rel="icon" href="assets/favicon.ico">
-    
+
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
@@ -28,6 +29,7 @@
 <style>
 
 </style>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -50,14 +52,14 @@
     <!-- Masthead -->
     <header class="masthead text-center">
         <div class="container">
-            <div class="masthead-subheading">Welcome to DineFlow!</div>
+            <div class="masthead-subheading">Welcome to Unidorm!</div>
             <div class="masthead-heading text-uppercase">{{ $tenantName }}</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="#home">Explore Our Cafe's Menu That Fit To Your Budget!</a>
+            <a class="btn btn-dark btn-xl text-uppercase" href="#home">Explore Our Dormitory Rooms That Fit Your Budget!</a>
         </div>
     </header>
 
     <div class="container-fluid px-1 pt-3"> <!-- Added px-0 for horizontal padding, pt-4 for top padding -->
-    @yield('content')
+        @yield('content')
     </div>
 
 
@@ -67,4 +69,5 @@
     <!-- Custom Scripts -->
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

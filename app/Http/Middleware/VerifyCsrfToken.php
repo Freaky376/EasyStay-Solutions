@@ -13,6 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'orders',
-        'jasaan.cafe.dineflow.localhost:8000/*',
+        'jasaan.cafe.unidorm.localhost:8000/*',
     ];
 }

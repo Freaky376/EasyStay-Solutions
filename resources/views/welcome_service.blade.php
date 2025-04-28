@@ -2,70 +2,68 @@
 <section class="page-section" id="services">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Dineflow Services</h2>
-            <h3 class="section-subheading text-muted">Fresh Every Flavor, Fresh Every Sip</h3>
+            <h2 class="section-heading text-uppercase">Unidorm Services</h2>
+            <h3 class="section-subheading text-muted">Find Your Perfect Dorm, Easy and Fast</h3>
             <!-- Add a new description about the service -->
             <p class="text-muted">
-                Dineflow provides a comprehensive platform for finding and managing cafe's. Whether you're a tenant looking for the perfect place to stay or a the one managing multiple cafe's, Dineflow offers the tools you need to simplify the process.
+            Unidorm provides a hassle-free platform for discovering and managing dormitories. Whether you're a student searching for the perfect place to stay or a dorm owner managing multiple listings, Unidorm gives you the tools you need to make dorm hunting and management easier.
             </p>
         </div>
         <div class="row text-center">
-            <!-- Basic Plan -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="my-2">Basic Plan</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5>$19.99/month</h5>
-                        <ul class="list-unstyled">
-                            <li>List up to 10  items</li>
-                        </ul>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#basicPlanModal">
-                            Subscribe
-                        </button>
-                    </div>
-                </div>
+    <!-- Basic Plan -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h4 class="my-2">Basic Plan</h4>
             </div>
-
-            <!-- Standard Plan -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-header bg-success text-white">
-                        <h4 class="my-2">Standard Plan</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5>$49.99/month</h5>
-                        <ul class="list-unstyled">
-                            <li>List up to 50 items</li>
-                        </ul>
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#standardPlanModal">
-                            Subscribe
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Premium Plan -->
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-header bg-warning text-white">
-                        <h4 class="my-2">Premium Plan</h4>
-                    </div>
-                    <div class="card-body">
-                        <h5>$99.99/month</h5>
-                        <ul class="list-unstyled">
-                            <li>List up unlimited  items</li>
-                        </ul>
-                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#premiumPlanModal">
-                            Subscribe
-                        </button>
-                    </div>
-                </div>
+            <div class="card-body">
+                <h5>$19.99/month</h5>
+                <ul class="list-unstyled">
+                    <li>List up to 10 dorms</li>
+                </ul>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#basicPlanModal">
+                    Subscribe
+                </button>
             </div>
         </div>
     </div>
-</section>
+
+    <!-- Standard Plan -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h4 class="my-2">Standard Plan</h4>
+            </div>
+            <div class="card-body">
+                <h5>$49.99/month</h5>
+                <ul class="list-unstyled">
+                    <li>List up to 50 dorms</li>
+                </ul>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#standardPlanModal">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h4 class="my-2">Premium Plan</h4>
+            </div>
+            <div class="card-body">
+                <h5>$99.99/month</h5>
+                <ul class="list-unstyled">
+                    <li>List up unlimited dorms</li>
+                </ul>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#premiumPlanModal">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Basic Plan Modal -->
 <div class="modal fade" id="basicPlanModal" tabindex="-1" aria-labelledby="basicPlanModalLabel" aria-hidden="true">
@@ -88,7 +86,7 @@
             <input type="email" class="form-control" id="basicEmail" name="email" required>
           </div>
           <div class="mb-3">
-            <label for="basicCity" class="form-label">Cafe</label>
+            <label for="basicCity" class="form-label">Dorm</label>
             <input type="text" class="form-control" id="basicCity" name="city" required>
           </div>
           <div class="mb-3">
@@ -129,7 +127,7 @@
             <input type="email" class="form-control" id="standardEmail" name="email" required>
           </div>
           <div class="mb-3">
-            <label for="standardCity" class="form-label">Cafe</label>
+            <label for="standardCity" class="form-label">Dorm</label>
             <input type="text" class="form-control" id="standardCity" name="city" required>
           </div>
           <div class="mb-3">
@@ -170,7 +168,7 @@
             <input type="email" class="form-control" id="premiumEmail" name="email" required>
           </div>
           <div class="mb-3">
-            <label for="premiumCity" class="form-label">Cafe</label>
+            <label for="premiumCity" class="form-label">Dorm</label>
             <input type="text" class="form-control" id="premiumCity" name="city" required>
           </div>
           <div class="mb-3">
@@ -239,28 +237,11 @@ $(document).ready(function () {
                 Swal.fire({
                     icon: 'success',
                     title: 'Subscription Successful!',
-                    html: `
-                        <h4>Welcome to DineFlow ${planType.charAt(0).toUpperCase() + planType.slice(1)} Plan</h4>
-                        <p>You can now start listing your cafe items.</p>
-                        <div class="alert alert-success mt-3">
-                            <strong>Next Steps:</strong>
-                            <ul class="text-start">
-                                <li>Check your email for confirmation</li>
-                                <li>Login to your dashboard</li>
-                                <li>Start adding your menu items</li>
-                            </ul>
-                        </div>
-                    `,
-                    confirmButtonText: 'Go to Dashboard',
-                    confirmButtonColor: '#3085d6',
-                    showCancelButton: true,
-                    cancelButtonText: 'Stay Here'
-                }).then((result) => {
+                    text: `You are now subscribed to the ${planType} plan.`,
+                    confirmButtonText: 'Okay'
+                }).then(() => {
                     form[0].reset();
                     form.closest('.modal').modal('hide');
-                    if (result.isConfirmed) {
-                        window.location.href = '/dashboard';
-                    }
                 });
             },
             error: function (xhr) {

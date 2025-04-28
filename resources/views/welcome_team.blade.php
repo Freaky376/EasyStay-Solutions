@@ -1,5 +1,5 @@
 <!-- Team-->
-<section class="page-section bg-light" id="team">
+<!-- <section class="page-section bg-light" id="team">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Team</h2>
@@ -43,7 +43,7 @@
                     <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/" aria-label="Facebook Profile"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Instagram Profile"><i class="fab fa-instagram"></i></a>
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="col-lg-6 text-center">
                 <div class="team-member">
                     <img class="mx-auto rounded-circle" src="assets/img/team/kents.jpg" alt="..." />
@@ -55,4 +55,4 @@
             </div>
         </div>
     </div> -->
-</section>
+<!-- </section> -->

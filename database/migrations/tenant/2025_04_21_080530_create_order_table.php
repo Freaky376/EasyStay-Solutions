@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('touristspot_id');
             $table->string('name');
             $table->string('phone');
-            $table->integer('quantity');
-            $table->decimal('total_price', 10, 2);
+            $table->integer('quantity')->default('1');
+            $table->decimal('total_price', 10, 2)->default('1');
             $table->string('order_type');
             $table->string('status')->default('pending');
             $table->timestamps();

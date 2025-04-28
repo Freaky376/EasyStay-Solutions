@@ -89,24 +89,16 @@
         color: white;
         opacity: 1;
     }
-
-    /* Total price display */
-    .total-price-display {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #d9534f;
-        margin-top: 10px;
-    }
 </style>
 
 <section class="page-section attraction-section" id="home">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-heading text-uppercase">Cafe Menu in {{ $tenantName }}</h2>
+            <h2 class="section-heading text-uppercase">Room Options in {{ $tenantName }} Dormitory</h2>
             <h6 class="text-muted">
-                Explore the delightful menu of DineFlow Café in {{ $tenantName }}, where every dish is crafted to offer a unique blend of flavor and comfort.
-                Whether you're craving a quick bite in a lively setting or a relaxing sip in a cozy corner,
-                discover the perfect café experience that suits your taste and mood.
+                Explore the comfortable and welcoming rooms of {{ $tenantName }} Dormitory, where each space is designed to provide a relaxing and convenient stay.
+                Whether you're looking for a quiet retreat to study or a cozy place to unwind,
+                discover the perfect dorm experience that meets your needs and preferences.
             </h6>
         </div>
 
@@ -124,19 +116,19 @@
                         <p style="text-align: center;" class="card-text">Description: {{ $touristSpot->description }}</p>
                         <p class="card-text" style="text-align: center;">
                             <i class="fas fa-money-bill-alt icon"></i>
-                            <span class="price">Price: ₱{{ number_format($touristSpot->entry_fee, 2) }}</span>
+                            <span class="price">Monthly Price: ₱{{ number_format($touristSpot->entry_fee, 2) }}</span>
                         </p>
 
                         <!-- Order Button -->
                         <button type="button" class="order-btn"
+                            style="background-color:rgb(41, 154, 253) !important; color: white !important; border: none !important;"
                             data-bs-toggle="modal"
                             data-bs-target="#orderModal"
                             data-spot-id="{{ $touristSpot->id }}"
                             data-spot-name="{{ $touristSpot->name }}"
                             data-spot-price="{{ $touristSpot->entry_fee }}">
-                            Order Now
+                            Book Now
                         </button>
-
                     </div>
                 </div>
             </div>
@@ -148,111 +140,121 @@
 <!-- Order Modal -->
 <div class="modal fade" id="orderModal" tabindex="-1" role="dialog" aria-labelledby="orderModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="orderModalLabel">Place Your Order</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header bg-gray-800 border-gray-700">
+                <h5 class="modal-title text-white" id="orderModalLabel">Book Your Room</h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close" id="modalCloseButton">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body bg-gray-900">
                 <form id="orderForm" method="POST" action="{{ route('orders.store') }}">
                     @csrf
                     <input type="hidden" id="spotId" name="touristspot_id">
+                    <input type="hidden" id="actualPrice" name="total_price">
+                    
                     <div class="form-group">
-                        <label for="spotName">Item:</label>
-                        <input type="text" class="form-control" id="spotName" readonly>
+                        <label for="spotName" class="text-gray-300">Room:</label>
+                        <input type="text" class="form-control bg-gray-800 border-gray-700 text-white" id="spotName" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="spotPrice">Unit Price:</label>
-                        <input type="text" class="form-control" id="spotPrice" readonly>
+                        <label for="spotPrice" class="text-gray-300">Monthly Price:</label>
+                        <input type="text" class="form-control bg-gray-800 border-gray-700 text-white" id="spotPrice" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" class="form-control" id="quantity" name="quantity" min="1" value="1" required>
-                        <div class="total-price-display">Total: ₱<span id="displayTotalPrice">0.00</span></div>
-                    </div>
-                    <input type="hidden" id="total_price" name="total_price">
-                    <div class="form-group">
-                        <label for="customerName">Your Name:</label>
-                        <input type="text" class="form-control" id="customerName" name="name" required placeholder="Enter your full name">
+                        <label for="customerName" class="text-gray-300">Your Name:</label>
+                        <input type="text" class="form-control bg-gray-800 border-gray-700 text-white" id="customerName" name="name" required placeholder="Enter your full name">
                     </div>
                     <div class="form-group">
-                        <label for="customerPhone">Phone Number:</label>
-                        <input type="tel" class="form-control" id="customerPhone" name="phone" required placeholder="Enter your phone number">
+                        <label for="customerPhone" class="text-gray-300">Phone Number:</label>
+                        <input type="tel" class="form-control bg-gray-800 border-gray-700 text-white" id="customerPhone" name="phone" required placeholder="Enter your phone number">
                     </div>
                     <div class="form-group">
-                        <label for="orderType">Order Type:</label>
-                        <select class="form-control" id="orderType" name="order_type" required>
-                            <option value="Dine-in">Dine-in</option>
-                            <option value="Takeaway">Takeaway</option>
+                        <label for="orderType" class="text-gray-300">Order Type:</label>
+                        <select class="form-control bg-gray-800 border-gray-700 text-white" id="orderType" name="order_type" required>
+                            <option value="Immediate">Immediate</option>
+                            <option value="Reservation">Reservation</option>
                         </select>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary" id="submitOrder">Submit Order</button>
+            <div class="modal-footer bg-gray-800 border-gray-700">
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal" id="cancelButton">Cancel</button>
+                <button type="button" class="btn btn-primary bg-blue-600 hover:bg-blue-700" id="submitOrder">Submit</button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Cafe Location Map -->
-<section class="page-section bg-light" id="location">
-    <div class="container">
-        <div class="text-center mb-4">
-            <h2 class="section-heading text-uppercase">Find Us</h2>
-            <h3 class="section-subheading text-muted">Visit our {{ $tenantName }}</h3>
-        </div>
-        <div class="card shadow-lg border-0">
-            <div class="card-body p-0">
-                <div id="map" style="height: 450px; border-radius: 0 0 10px 10px;"></div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Leaflet Map Styles and Scripts -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const map = L.map('map').setView([14.5995, 120.9842], 14); // Default to Manila
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
-
-        L.marker([14.5995, 120.9842])
-            .addTo(map)
-            .bindPopup("<b>DineFlow Café</b><br>Manila, PH")
-            .openPopup();
-
-        // Geolocation if allowed
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(pos => {
-                const lat = pos.coords.latitude;
-                const lon = pos.coords.longitude;
-                map.setView([lat, lon], 15);
-                L.marker([lat, lon]).addTo(map).bindPopup("Here!").openPopup();
-            });
-        }
-    });
-</script>
-
+<style>
+    /* Custom dark theme styles */
+    .bg-gray-800 {
+        background-color: #2d3748;
+    }
+    .bg-gray-900 {
+        background-color: #1a202c;
+    }
+    .border-gray-700 {
+        border-color: #4a5568;
+    }
+    .text-gray-300 {
+        color: #e2e8f0;
+    }
+    .bg-dark {
+        background-color: #1a202c;
+    }
+    .modal-content {
+        border: 1px solid #4a5568;
+    }
+    .form-control {
+        background-color: #2d3748;
+        border: 1px solid #4a5568;
+        color: white;
+    }
+    .form-control:focus {
+        background-color: #2d3748;
+        color: white;
+        border-color: #667eea;
+        box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+    }
+    .form-control::placeholder {
+        color: #a0aec0;
+    }
+    .btn-outline-light {
+        color: #f7fafc;
+        border-color: #f7fafc;
+    }
+    .btn-outline-light:hover {
+        color: #1a202c;
+        background-color: #f7fafc;
+    }
+    .bg-blue-600 {
+        background-color: #3182ce;
+    }
+    .hover\:bg-blue-700:hover {
+        background-color: #2c5282;
+    }
+</style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Add SweetAlert JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    $(document).ready(function() {
+     $(document).ready(function() {
         // Initialize modal
         var orderModal = new bootstrap.Modal(document.getElementById('orderModal'));
+
+         // Close modal when X button is clicked
+         $('#modalCloseButton').click(function() {
+            orderModal.hide();
+        });
+
+        // Close modal when Cancel button is clicked
+        $('#cancelButton').click(function() {
+            orderModal.hide();
+        });
 
         // When the order button is clicked, populate the modal with the spot data
         $('.order-btn').click(function() {
@@ -263,28 +265,14 @@
             $('#spotId').val(spotId);
             $('#spotName').val(spotName);
             $('#spotPrice').val('₱' + spotPrice.toFixed(2));
-
-            // Calculate initial total price
-            calculateTotalPrice(spotPrice, 1);
-        });
-
-        // When quantity changes, update the total price
-        $('#quantity').on('input', function() {
-            var quantity = parseInt($(this).val()) || 0;
-            var unitPrice = parseFloat($('#spotPrice').val().replace('₱', '')) || 0;
-
-            if (quantity < 1) {
-                $(this).val(1);
-                quantity = 1;
-            }
-
-            calculateTotalPrice(unitPrice, quantity);
+            // Set the actual price value in the hidden field
+            $('#actualPrice').val(spotPrice.toFixed(2));
         });
 
         // Submit order form with SweetAlert confirmation
         $('#submitOrder').click(function(e) {
             e.preventDefault();
-            
+
             // Validate form
             if ($('#orderForm')[0].checkValidity()) {
                 Swal.fire({
@@ -310,53 +298,46 @@
 
         // Handle form submission response
         @if(session('success'))
-            Swal.fire({
-                title: 'Success!',
-                text: '{{ session('success') }}',
-                icon: 'success',
-                confirmButtonColor: '#28a745'
-            });
+        Swal.fire({
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonColor: '#28a745'
+        });
         @endif
 
         @if(session('error'))
-            Swal.fire({
-                title: 'Error!',
-                text: '{{ session('error') }}',
-                icon: 'error',
-                confirmButtonColor: '#dc3545'
-            });
+        Swal.fire({
+            title: 'Error!',
+            text: '{{ session('error') }}',
+            icon: 'error',
+            confirmButtonColor: '#dc3545'
+        });
         @endif
-
-        function calculateTotalPrice(unitPrice, quantity) {
-            var totalPrice = unitPrice * quantity;
-            $('#total_price').val(totalPrice.toFixed(2));
-            $('#displayTotalPrice').text(totalPrice.toFixed(2));
-        }
     });
 </script>
 
-<!-- Add this to your controller's store method to return success/error messages -->
 @if(session()->has('success') || session()->has('error'))
-    <script>
-        $(document).ready(function() {
-            @if(session('success'))
-                Swal.fire({
-                    title: 'Success!',
-                    text: '{{ session('success') }}',
-                    icon: 'success',
-                    confirmButtonColor: '#28a745'
-                });
-            @endif
-
-            @if(session('error'))
-                Swal.fire({
-                    title: 'Error!',
-                    text: '{{ session('error') }}',
-                    icon: 'error',
-                    confirmButtonColor: '#dc3545'
-                });
-            @endif
+<script>
+    $(document).ready(function() {
+        @if(session('success'))
+        Swal.fire({
+            title: 'Success!',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonColor: '#28a745'
         });
-    </script>
+        @endif
+
+        @if(session('error'))
+        Swal.fire({
+            title: 'Error!',
+            text: '{{ session('error') }}',
+            icon: 'error',
+            confirmButtonColor: '#dc3545'
+        });
+        @endif
+    });
+</script>
 @endif
 @endsection

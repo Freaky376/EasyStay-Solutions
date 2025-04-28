@@ -13,7 +13,7 @@ class TenantCreated extends Mailable
     public $userName;
     public $userEmail;
     public $randomPassword;
-    public $domain;        // Just the domain name (e.g., "donmaca.com.dineflow.localhost")
+    public $domain;        // Just the domain name (e.g., "donmaca.com.unidorm.localhost")
     public $domainUrl;     // Full URL with protocol and port if needed
     public $subscriptionPlan;
 

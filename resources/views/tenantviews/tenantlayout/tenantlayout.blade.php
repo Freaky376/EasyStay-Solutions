@@ -48,7 +48,7 @@
         <!-- Dropdown menu for profile -->
         <div class="dropdown">
           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" alt="Profile" class="rounded-circle" width="30" height="30">
+            <img src="https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg" alt="Profile" class="rounded-circle" width="30" height="30">
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item" href="{{ route('tenant.profile') }}">Profile</a></li>
@@ -71,11 +71,11 @@
           @auth
         <!-- Manage Menu - only for admin -->
         @if(auth()->user()->role === 'admin')
-        <a href="tenantbhlist" class="list-group-item list-group-item-action text-white">Manage Menu</a>
+        <a href="tenantbhlist" class="list-group-item list-group-item-action text-white">Manage Dorm</a>
         @endif
 
         <!-- Track Order - visible to all authenticated users -->
-        <a href="tenanttrackorder" class="list-group-item list-group-item-action text-white">Track Order</a>
+        <a href="tenanttrackorder" class="list-group-item list-group-item-action text-white">Track Bookings</a>
 
         <!-- View Users - only for admin -->
         @if(auth()->user()->role === 'admin')

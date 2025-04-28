@@ -104,10 +104,10 @@ class OrderController extends Controller
             'touristspot_id' => 'required|exists:touristspot,id',
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'quantity' => 'required|integer|min:1',
+            'quantity' => 'nullable|integer|min:1',
             'order_type' => 'required|string|max:255',
-            'total_price' => 'required|numeric|min:0',
-            'status' => 'sometimes|string|in:pending,confirmed,completed,cancelled' // Added status validation
+            'total_price' => 'nullable|numeric|min:0',
+            'status' => 'sometimes|string|in:pending,confirmed,completed,cancelled' 
         ]);
 
         // Set default status if not provided

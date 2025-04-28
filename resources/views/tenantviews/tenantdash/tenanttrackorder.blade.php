@@ -3,7 +3,7 @@
 @section('content')
 <div class="col-md-12">
     <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
+        <div class="card-header bg-dark text-white">
             <div class="d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Order Tracking Dashboard</h5>
             </div>
@@ -31,12 +31,9 @@
                     <thead class="thead-light">
                         <tr>
                             <th>Image</th>
-                            <th>Item</th>
+                            <th>Room/Floor</th>
                             <th>Customer</th>
                             <th>Phone</th>
-                            <th>Qty</th>
-                            <th>Type</th>
-                            <th>Total</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -52,9 +49,7 @@
                             <td class="align-middle">{{ $customer->touristspot->name ?? 'N/A' }}</td>
                             <td class="align-middle">{{ $customer->name }}</td>
                             <td class="align-middle">{{ $customer->phone ?? 'N/A' }}</td>
-                            <td class="align-middle">{{ $customer->quantity }}</td>
-                            <td class="align-middle">{{ ucfirst($customer->order_type) }}</td>
-                            <td class="align-middle">₱{{ number_format($customer->total_price, 2) }}</td>
+                            <!-- <td class="align-middle">₱{{ number_format($customer->total_price, 2) }}</td> -->
                             <td class="align-middle">
                                 <button class="btn btn-sm btn-outline-primary view-orders" data-name="{{ $customer->name }}">
                                     <i class="fas fa-history"></i> History
@@ -89,11 +84,10 @@
                         <thead class="thead-light">
                             <tr>
                                 <th>Date</th>
-                                <th>Item</th>
+                                <th>Room/Floor</th>
                                 <th>Image</th>
-                                <th>Qty</th>
                                 <th>Type</th>
-                                <th>Total</th>
+                                <th>Monthly Price</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -178,7 +172,7 @@ $(function () {
         
         Swal.fire({
             title: 'Update Status',
-            text: `Are you sure you want to mark this order as ${newStatus}?`,
+            text: `Are you sure you want to mark this booking as ${newStatus}?`,
             icon: 'question',
             showCancelButton: true,
             confirmButtonText: 'Yes, update it!',
@@ -200,7 +194,7 @@ $(function () {
                         
                         Swal.fire(
                             'Updated!',
-                            'Order status has been updated.',
+                            'Booking status has been updated.',
                             'success'
                         );
                     },
@@ -235,7 +229,6 @@ $(function () {
                     <td>${date}</td>
                     <td>${item}</td>
                     <td><img src="/storage/visitor/image/${image}" class="img-thumbnail" style="width: 60px;"></td>
-                    <td>${order.quantity}</td>
                     <td>${order.order_type}</td>
                     <td>₱${parseFloat(order.total_price).toFixed(2)}</td>
                     <td>
@@ -251,7 +244,7 @@ $(function () {
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item update-status" href="#" data-id="${order.id}" data-status="pending">Mark as Pending</a>
-                                <a class="dropdown-item update-status" href="#" data-id="${order.id}" data-status="completed">Mark as Completed</a>
+                                <a class="dropdown-item update-status" href="#" data-id="${order.id}" data-status="confirmed">Mark as Confirmed</a>
                                 <a class="dropdown-item update-status" href="#" data-id="${order.id}" data-status="cancelled">Mark as Cancelled</a>
                             </div>
                         </div>
@@ -271,7 +264,6 @@ $(function () {
         switch(status) {
             case 'pending': return 'warning';
             case 'confirmed': return 'info';
-            case 'completed': return 'success';
             case 'cancelled': return 'danger';
             default: return 'secondary';
         }
@@ -334,7 +326,7 @@ $(function () {
 function getStatusBadgeClass($status) {
     switch($status) {
         case 'pending': return 'warning';
-        case 'completed': return 'success';
+        case 'confirmed': return 'success';
         case 'cancelled': return 'danger';
         default: return 'secondary';
     }
