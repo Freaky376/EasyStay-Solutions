@@ -170,7 +170,7 @@
                         <input type="tel" class="form-control bg-gray-800 border-gray-700 text-white" id="customerPhone" name="phone" required placeholder="Enter your phone number">
                     </div>
                     <div class="form-group">
-                        <label for="orderType" class="text-gray-300">Order Type:</label>
+                        <label for="orderType" class="text-gray-300">Room Type:</label>
                         <select class="form-control bg-gray-800 border-gray-700 text-white" id="orderType" name="order_type" required>
                             <option value="Immediate">Immediate</option>
                             <option value="Reservation">Reservation</option>
