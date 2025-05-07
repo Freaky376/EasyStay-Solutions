@@ -299,13 +299,13 @@
             // Validate form
             if ($('#orderForm')[0].checkValidity()) {
                 Swal.fire({
-                    title: 'Confirm Order',
-                    text: 'Are you sure you want to place this order?',
+                    title: 'Confirm Booking',
+                    text: 'Are you sure you want to place this booking?',
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#28a745',
                     cancelButtonColor: '#6c757d',
-                    confirmButtonText: 'Yes, place order!',
+                    confirmButtonText: 'Yes, place booking!',
                     cancelButtonText: 'Cancel'
                 }).then((result) => {
                     if (result.isConfirmed) {
