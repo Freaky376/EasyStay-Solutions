@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('quantity')->default('1');
             $table->decimal('total_price', 10, 2)->default('1');
             $table->string('order_type');
+            $table->string('subscriptionType');
             $table->string('status')->default('pending');
             $table->timestamps();
         });

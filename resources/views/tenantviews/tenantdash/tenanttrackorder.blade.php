@@ -88,6 +88,7 @@
                                 <th>Image</th>
                                 <th>Type</th>
                                 <th>Monthly Price</th>
+                                <th>Subscription Type</th>
                                 <th>Status</th>
                                 <th>Actions</th>
                             </tr>
@@ -231,6 +232,7 @@ $(function () {
                     <td><img src="/storage/visitor/image/${image}" class="img-thumbnail" style="width: 60px;"></td>
                     <td>${order.order_type}</td>
                     <td>₱${parseFloat(order.total_price).toFixed(2)}</td>
+                    <td>${order.subscriptionType}</td>
                     <td>
                         <span class="badge badge-${getStatusBadgeClass(order.status)}">
                             ${order.status.charAt(0).toUpperCase() + order.status.slice(1)}

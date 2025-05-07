@@ -126,7 +126,9 @@
                             data-bs-target="#orderModal"
                             data-spot-id="{{ $touristSpot->id }}"
                             data-spot-name="{{ $touristSpot->name }}"
-                            data-spot-price="{{ $touristSpot->entry_fee }}">
+                            data-spot-price="{{ $touristSpot->entry_fee }}"
+                            data-spot-subscription="{{ $touristSpot->subscriptionType }}">
+                            >
                             Book Now
                         </button>
                     </div>
@@ -152,7 +154,7 @@
                     @csrf
                     <input type="hidden" id="spotId" name="touristspot_id">
                     <input type="hidden" id="actualPrice" name="total_price">
-                    
+
                     <div class="form-group">
                         <label for="spotName" class="text-gray-300">Room:</label>
                         <input type="text" class="form-control bg-gray-800 border-gray-700 text-white" id="spotName" readonly>
@@ -176,6 +178,14 @@
                             <option value="Reservation">Reservation</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="subscriptionType" class="text-gray-300">Subscription Type:</label>
+                        <select class="form-control bg-gray-800 border-gray-700 text-white" id="subscriptionType" name="subscriptionType" required>
+                            <option value="Silver">Silver - First Semester Only</option>
+                            <option value="Gold">Gold - Whole Semester</option>
+                        </select>
+                    </div>
+
                 </form>
             </div>
             <div class="modal-footer bg-gray-800 border-gray-700">
@@ -192,46 +202,58 @@
     .bg-gray-800 {
         background-color: #2d3748;
     }
+
     .bg-gray-900 {
         background-color: #1a202c;
     }
+
     .border-gray-700 {
         border-color: #4a5568;
     }
+
     .text-gray-300 {
         color: #e2e8f0;
     }
+
     .bg-dark {
         background-color: #1a202c;
     }
+
     .modal-content {
         border: 1px solid #4a5568;
     }
+
     .form-control {
         background-color: #2d3748;
         border: 1px solid #4a5568;
         color: white;
     }
+
     .form-control:focus {
         background-color: #2d3748;
         color: white;
         border-color: #667eea;
         box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
     }
+
     .form-control::placeholder {
         color: #a0aec0;
     }
+
     .btn-outline-light {
         color: #f7fafc;
         border-color: #f7fafc;
     }
+
     .btn-outline-light:hover {
         color: #1a202c;
         background-color: #f7fafc;
     }
+
     .bg-blue-600 {
         background-color: #3182ce;
     }
+
     .hover\:bg-blue-700:hover {
         background-color: #2c5282;
     }
@@ -242,12 +264,12 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-     $(document).ready(function() {
+    $(document).ready(function() {
         // Initialize modal
         var orderModal = new bootstrap.Modal(document.getElementById('orderModal'));
 
-         // Close modal when X button is clicked
-         $('#modalCloseButton').click(function() {
+        // Close modal when X button is clicked
+        $('#modalCloseButton').click(function() {
             orderModal.hide();
         });
 
@@ -261,6 +283,7 @@
             var spotId = $(this).data('spot-id');
             var spotName = $(this).data('spot-name');
             var spotPrice = parseFloat($(this).data('spot-price'));
+            
 
             $('#spotId').val(spotId);
             $('#spotName').val(spotName);
@@ -300,7 +323,8 @@
         @if(session('success'))
         Swal.fire({
             title: 'Success!',
-            text: '{{ session('success') }}',
+            text: '{{ session('
+            success ') }}',
             icon: 'success',
             confirmButtonColor: '#28a745'
         });
@@ -309,7 +333,8 @@
         @if(session('error'))
         Swal.fire({
             title: 'Error!',
-            text: '{{ session('error') }}',
+            text: '{{ session('
+            error ') }}',
             icon: 'error',
             confirmButtonColor: '#dc3545'
         });
@@ -323,7 +348,8 @@
         @if(session('success'))
         Swal.fire({
             title: 'Success!',
-            text: '{{ session('success') }}',
+            text: '{{ session('
+            success ') }}',
             icon: 'success',
             confirmButtonColor: '#28a745'
         });
@@ -332,7 +358,8 @@
         @if(session('error'))
         Swal.fire({
             title: 'Error!',
-            text: '{{ session('error') }}',
+            text: '{{ session('
+            error ') }}',
             icon: 'error',
             confirmButtonColor: '#dc3545'
         });

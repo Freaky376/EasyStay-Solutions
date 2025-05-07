@@ -106,6 +106,7 @@ class OrderController extends Controller
             'phone' => 'required|string|max:20',
             'quantity' => 'nullable|integer|min:1',
             'order_type' => 'required|string|max:255',
+            'subscriptionType' => 'required|string|max:255',
             'total_price' => 'nullable|numeric|min:0',
             'status' => 'sometimes|string|in:pending,confirmed,completed,cancelled' 
         ]);
@@ -146,6 +147,7 @@ class OrderController extends Controller
             'phone' => 'required|string|max:20',
             'quantity' => 'required|integer|min:1',
             'order_type' => 'required|string|max:255',
+            'subscriptionType' => 'required|string|max:255',
             'total_price' => 'required|numeric|min:0',
             'status' => 'required|string|in:pending,confirmed,completed,cancelled' // Added status validation
         ]);

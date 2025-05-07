@@ -17,6 +17,7 @@ class Order extends Model
         'phone',
         'quantity',
         'order_type',
+        'subscriptionType',
         'total_price',
         'status',
     ];
